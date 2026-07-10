@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "mock_resp_mreqixvq6hq",
+    "sessionId": "sess_mreqikgp94ig49xy",
+    "answers": [
+      {
+        "questionNumber": 1,
+        "leftPosterId": "667d022b79a29bf33682efd1",
+        "rightPosterId": "667d022b79a29bf33682efd2",
+        "selectedPosterId": "667d022b79a29bf33682efd1"
+      },
+      {
+        "questionNumber": 2,
+        "leftPosterId": "667d022b79a29bf33682efd3",
+        "rightPosterId": "667d022b79a29bf33682efd4",
+        "selectedPosterId": "667d022b79a29bf33682efd4"
+      },
+      {
+        "questionNumber": 3,
+        "leftPosterId": "667d022b79a29bf33682efd5",
+        "rightPosterId": "667d022b79a29bf33682efd6",
+        "selectedPosterId": "667d022b79a29bf33682efd5"
+      },
+      {
+        "questionNumber": 4,
+        "leftPosterId": "667d022b79a29bf33682efd7",
+        "rightPosterId": "667d022b79a29bf33682efd8",
+        "selectedPosterId": "667d022b79a29bf33682efd8"
+      },
+      {
+        "questionNumber": 5,
+        "leftPosterId": "667d022b79a29bf33682efd9",
+        "rightPosterId": "667d022b79a29bf33682efda",
+        "selectedPosterId": "667d022b79a29bf33682efd9"
+      },
+      {
+        "questionNumber": 6,
+        "leftPosterId": "667d022b79a29bf33682efdb",
+        "rightPosterId": "667d022b79a29bf33682efdc",
+        "selectedPosterId": "667d022b79a29bf33682efdc"
+      }
+    ],
+    "name": "nittur opticals",
+    "deviceId": "bdd90556-55a4-4c25-8cff-c64e0d3c8afb",
+    "completedAt": "2026-07-10T09:30:13.382Z",
+    "createdAt": "2026-07-10T09:30:13.382Z",
+    "updatedAt": "2026-07-10T09:30:13.382Z"
+  }
+]

@@ -42,7 +42,6 @@ const seedMockData = async (posters) => {
     }
   }
 
-  const mockUpiSuffixes = ['okaxis', 'ybl', 'paytm', 'okicici', 'oksbi', 'ybl', 'axl'];
   const mockNames = [
     'arjun', 'priya', 'amit', 'neha', 'rohit', 'sneha', 
     'rahul', 'pooja', 'vikram', 'ananya', 'sanjay', 'divya', 
@@ -54,9 +53,8 @@ const seedMockData = async (posters) => {
 
   // Generate 24 mock submissions spread over the last 6 days
   for (let i = 0; i < 24; i++) {
-    const name = mockNames[i % mockNames.length];
-    const suffix = mockUpiSuffixes[i % mockUpiSuffixes.length];
-    const upiId = `${name}.${Math.floor(Math.random() * 900 + 100)}@${suffix}`;
+    const rawName = mockNames[i % mockNames.length];
+    const name = rawName.charAt(0).toUpperCase() + rawName.slice(1);
     const sessionId = `sess_mock_${Math.random().toString(36).substring(2, 10)}${Date.now().toString(36)}`;
     
     // Spread completion dates over the last 6 days
@@ -82,7 +80,7 @@ const seedMockData = async (posters) => {
     mockResponses.push({
       sessionId,
       answers,
-      upiId,
+      name,
       deviceId,
       completedAt,
       createdAt: completedAt,
@@ -109,9 +107,9 @@ export const getAnalytics = async (req, res) => {
 
     const totalResponses = responses.length;
 
-    // 1. Calculate Unique UPI accounts
-    const uniqueUpis = new Set(responses.map(r => r.upiId.toLowerCase().trim()));
-    const uniqueUpiCount = uniqueUpis.size;
+    // 1. Calculate Unique name accounts
+    const uniqueNames = new Set(responses.map(r => (r.name || '').toLowerCase().trim()));
+    const uniqueNameCount = uniqueNames.size;
 
     // Create a lookup map for posters to simplify population
     const posterMap = {};
@@ -217,7 +215,7 @@ export const getAnalytics = async (req, res) => {
       return {
         _id: r._id,
         sessionId: r.sessionId,
-        upiId: r.upiId,
+        name: r.name,
         completedAt: r.completedAt,
         createdAt: r.createdAt,
         answers: answersWithDetails
@@ -227,7 +225,7 @@ export const getAnalytics = async (req, res) => {
     res.json({
       summary: {
         totalResponses,
-        uniqueUpiCount,
+        uniqueNameCount,
         totalPosters: posters.length
       },
       posters: posterStatsList.sort((a, b) => b.winRate - a.winRate),

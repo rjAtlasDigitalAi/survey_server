@@ -63,22 +63,13 @@ export const dbService = {
     return await SurveyResponse.findOne({ sessionId });
   },
 
-  // Check if duplicate submission exists by UPI or device ID
-  findDuplicateResponse: async (upiId, deviceId) => {
-    const cleanUpi = upiId.trim().toLowerCase();
+  // Check if duplicate submission exists by device ID
+  findDuplicateResponse: async (deviceId) => {
     if (global.isMockDB) {
       const responses = readMockResponses();
-      return responses.find(r => 
-        (r.upiId && r.upiId.trim().toLowerCase() === cleanUpi) || 
-        r.deviceId === deviceId
-      ) || null;
+      return responses.find(r => r.deviceId === deviceId) || null;
     }
-    return await SurveyResponse.findOne({
-      $or: [
-        { upiId: cleanUpi },
-        { deviceId: deviceId }
-      ]
-    });
+    return await SurveyResponse.findOne({ deviceId });
   },
 
   // Save survey response
@@ -100,7 +91,7 @@ export const dbService = {
     const newResponse = new SurveyResponse({
       sessionId: responseData.sessionId,
       answers: responseData.answers,
-      upiId: responseData.upiId,
+      name: responseData.name,
       deviceId: responseData.deviceId,
       completedAt: new Date()
     });

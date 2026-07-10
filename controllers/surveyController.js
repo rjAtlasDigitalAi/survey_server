@@ -3,7 +3,7 @@ import { dbService } from '../services/dbService.js';
 // Save survey response
 export const createSurveyResponse = async (req, res) => {
   try {
-    const { sessionId, answers, upiId, deviceId } = req.body;
+    const { sessionId, answers, name, deviceId } = req.body;
 
     // 1. Basic validation
     if (!sessionId) {
@@ -14,20 +14,18 @@ export const createSurveyResponse = async (req, res) => {
       return res.status(400).json({ message: 'Exactly 6 survey answers are required.' });
     }
 
-    if (!upiId) {
-      return res.status(400).json({ message: 'UPI ID is required for cashback request.' });
+    if (!name) {
+      return res.status(400).json({ message: 'Name is required.' });
     }
 
     if (!deviceId) {
       return res.status(400).json({ message: 'Device ID is required.' });
     }
 
-    // 2. Validate UPI ID format
-    // Format: username@bankname (e.g., example@okaxis, john.doe@ybl, etc.)
-    const cleanUpi = upiId.trim().toLowerCase();
-    const upiRegex = /^[\w.-]+@[\w.-]+$/;
-    if (!upiRegex.test(cleanUpi)) {
-      return res.status(400).json({ message: 'Invalid UPI ID format. Standard format is username@bank (e.g., user@okaxis).' });
+    // 2. Validate Name
+    const cleanName = name.trim();
+    if (cleanName.length < 2) {
+      return res.status(400).json({ message: 'Please enter a valid name (at least 2 characters).' });
     }
 
     // 3. Prevent duplicate submissions using sessionId
@@ -36,8 +34,8 @@ export const createSurveyResponse = async (req, res) => {
       return res.status(409).json({ message: 'A survey response has already been submitted for this session.' });
     }
 
-    // 4. Prevent duplicate submissions using UPI or Device ID
-    const existingSubmission = await dbService.findDuplicateResponse(cleanUpi, deviceId);
+    // 4. Prevent duplicate submissions using Device ID
+    const existingSubmission = await dbService.findDuplicateResponse(deviceId);
     if (existingSubmission) {
       return res.status(409).json({ message: 'You have already submitted this survey.' });
     }
@@ -55,7 +53,7 @@ export const createSurveyResponse = async (req, res) => {
     await dbService.saveSurveyResponse({
       sessionId,
       answers,
-      upiId: cleanUpi,
+      name: cleanName,
       deviceId
     });
 

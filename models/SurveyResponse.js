@@ -40,7 +40,7 @@ const surveyResponseSchema = new mongoose.Schema({
       }
     ]
   },
-  upiId: {
+  name: {
     type: String,
     required: true,
   },
