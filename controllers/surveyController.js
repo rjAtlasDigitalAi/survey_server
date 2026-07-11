@@ -10,8 +10,8 @@ export const createSurveyResponse = async (req, res) => {
       return res.status(400).json({ message: 'Session ID is required.' });
     }
 
-    if (!answers || !Array.isArray(answers) || answers.length !== 6) {
-      return res.status(400).json({ message: 'Exactly 6 survey answers are required.' });
+    if (!answers || !Array.isArray(answers) || answers.length !== 4) {
+      return res.status(400).json({ message: 'Exactly 4 survey answers are required.' });
     }
 
     if (!name) {

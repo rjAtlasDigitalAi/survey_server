@@ -7,18 +7,14 @@ const MOCK_RESPONSES_FILE = path.join(process.cwd(), 'mock_db_responses.json');
 
 // Predefined mock posters for mock database mode
 const mockPosters = [
-  { _id: '667d022b79a29bf33682efd1', title: 'Warm Pastel Sun', image: '/images/poster_1.png', category: 'Minimalist', style: 'Minimalist Vector', active: true },
-  { _id: '667d022b79a29bf33682efd2', title: 'Calm Ocean Waves', image: '/images/poster_2.png', category: 'Minimalist', style: 'Minimalist Vector', active: true },
-  { _id: '667d022b79a29bf33682efd3', title: 'Glowing Neon Alley', image: '/images/poster_3.png', category: 'Cyberpunk', style: 'Synthwave Digital Art', active: true },
-  { _id: '667d022b79a29bf33682efd4', title: 'Neon Cyber Sportscar', image: '/images/poster_4.png', category: 'Cyberpunk', style: 'Synthwave Digital Art', active: true },
-  { _id: '667d022b79a29bf33682efd5', title: 'Amalfi Coast, Italy', image: '/images/poster_5.png', category: 'Vintage Travel', style: 'Retro 1960s Illustration', active: true },
-  { _id: '667d022b79a29bf33682efd6', title: 'Mars Space Expedition', image: '/images/poster_6.png', category: 'Vintage Travel', style: 'Mid-century Sci-Fi Illustration', active: true },
-  { _id: '667d022b79a29bf33682efd7', title: 'Dream Big Motivation', image: '/images/poster_7.png', category: 'Typography', style: 'Modern Bold Typography', active: true },
-  { _id: '667d022b79a29bf33682efd8', title: 'Stay Focused Quote', image: '/images/poster_8.png', category: 'Typography', style: 'Minimalist High-Contrast Typography', active: true },
-  { _id: '667d022b79a29bf33682efd9', title: 'Misty Mountain Pine Forest', image: '/images/poster_9.png', category: 'Nature Landscape', style: 'Atmospheric Landscape Photo', active: true },
-  { _id: '667d022b79a29bf33682efda', title: 'Golden Autumn Path', image: '/images/poster_10.png', category: 'Nature Landscape', style: 'Scenic Autumn Landscape Photo', active: true },
-  { _id: '667d022b79a29bf33682efdb', title: 'Abstract Liquid Gold Splash', image: '/images/poster_11.png', category: 'Pop Art / Abstract', style: 'Vibrant Fluid Acrylic', active: true },
-  { _id: '667d022b79a29bf33682efdc', title: 'Neon Pop Comic Portrait', image: '/images/poster_12.png', category: 'Pop Art / Abstract', style: '80s Comic Book Illustration', active: true }
+  { _id: '667d022b79a29bf33682efd1', title: 'Warm Pastel Sun', image: '/images/poster_1.jpg', category: 'Creative Posters', style: 'Minimalist Vector', active: true },
+  { _id: '667d022b79a29bf33682efd2', title: 'Calm Ocean Waves', image: '/images/poster_2.jpg', category: 'Dark Color Posters', style: 'Minimalist Vector', active: true },
+  { _id: '667d022b79a29bf33682efd3', title: 'Glowing Neon Alley', image: '/images/poster_3.jpg', category: 'Attractive Posters', style: 'Synthwave Digital Art', active: true },
+  { _id: '667d022b79a29bf33682efd4', title: 'Neon Cyber Sportscar', image: '/images/poster_4.jpg', category: 'Dark Color Posters', style: 'Synthwave Digital Art', active: true },
+  { _id: '667d022b79a29bf33682efd5', title: 'Amalfi Coast, Italy', image: '/images/poster_5.jpg', category: 'Attractive Posters', style: 'Retro 1960s Illustration', active: true },
+  { _id: '667d022b79a29bf33682efd6', title: 'Mars Space Expedition', image: '/images/poster_6.jpg', category: 'Light Color Posters', style: 'Mid-century Sci-Fi Illustration', active: true },
+  { _id: '667d022b79a29bf33682efd7', title: 'Dream Big Motivation', image: '/images/poster_7.jpg', category: 'Creative Posters', style: 'Modern Bold Typography', active: true },
+  { _id: '667d022b79a29bf33682efd8', title: 'Stay Focused Quote', image: '/images/poster_8.jpg', category: 'Light Color Posters', style: 'Minimalist High-Contrast Typography', active: true }
 ];
 
 // Helper to read mock responses file

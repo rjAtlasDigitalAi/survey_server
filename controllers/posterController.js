@@ -30,13 +30,13 @@ export const getPosterPairs = async (req, res) => {
         });
         questionNumber++;
       }
-      if (pairs.length === 6) break;
+      if (pairs.length === 4) break;
     }
 
     // Fallback if not grouped nicely by category (just pair sequentially)
-    if (pairs.length < 6 && posters.length >= 12) {
+    if (pairs.length < 4 && posters.length >= 8) {
       pairs.length = 0; // Clear
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 4; i++) {
         pairs.push({
           questionNumber: i + 1,
           category: posters[i * 2].category,

@@ -26,13 +26,13 @@ const seedMockData = async (posters) => {
       });
       qNum++;
     }
-    if (pairs.length === 6) break;
+    if (pairs.length === 4) break;
   }
 
   // Fallback sequential pairs if not grouped nicely by category
-  if (pairs.length < 6 && posters.length >= 12) {
+  if (pairs.length < 4 && posters.length >= 8) {
     pairs.length = 0;
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 4; i++) {
       pairs.push({
         questionNumber: i + 1,
         leftPosterId: posters[i * 2]._id,

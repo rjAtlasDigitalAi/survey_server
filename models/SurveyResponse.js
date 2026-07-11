@@ -34,9 +34,9 @@ const surveyResponseSchema = new mongoose.Schema({
     validate: [
       {
         validator: function(val) {
-          return val.length === 6;
+          return val.length === 4;
         },
-        message: 'Survey response must contain exactly 6 answers.'
+        message: 'Survey response must contain exactly 4 answers.'
       }
     ]
   },
